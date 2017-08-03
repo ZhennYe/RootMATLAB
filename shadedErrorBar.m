@@ -145,7 +145,8 @@ if transparent
     faceAlpha=transparent;
     patchColor=col;
     set(gcf,'renderer','painters')
-    warning('if the plot is high freq, opengl can look better');
+    warning(['if the plot is high freq, opengl can look better'...
+        'used save2pdf, it won''t vectorize but it can save high dpi']);
 else
     faceAlpha=1;
     patchColor=col+(1-col)*(1-patchSaturation);
