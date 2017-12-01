@@ -56,12 +56,13 @@ for j=1:N
         yclick=y(j);
         x(j)=X(i);
         y(j)=Y(i);
-        ind=i;
+        ind(j)=i;
         if TEST
             k=0:.1:3.*pi;
             hold on;
-            plot(XScale.*r(i).*sin(k)+xclick,YScale.*r(i).*cos(k)+yclick,'r');
-            line([xclick x(j)],[yclick y(j)],'color','r');
-        end;
-    end;
+%             plot(XScale.*r(i).*sin(k)+xclick,YScale.*r(i).*cos(k)+yclick,'r');
+%             line([xclick x(j)],[yclick y(j)],'color','r');
+            plot(x(j),y(j),'r.','markersize',6);
+        end
+    end
 end;
