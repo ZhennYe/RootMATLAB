@@ -1,8 +1,9 @@
 function [m,pnts,obj]=drawSlopeLine(varargin)
-% h=axeshandle
+%[m,pnts,obj]=drawSlopeLine(varargin)
 %m=slope
 %pnts=endpoints [x1 y1 x2 y2];
 %obj = line object, to remove from plot do "delete(obj);"
+%varargin= you can explicitly define desired axes, or no arg uses gca
 
 
 if(nargin<1)
