@@ -1,4 +1,4 @@
-function varargout = plotMeanMSD(obj, ha, errorbar, indices)
+function varargout = plotMeanMSD(obj, ha, errorbar, indices,transp)
 %%PLOTMEANMSD Plot the weighted mean of the MSD curves.
 %
 % obj,plotMeanMSD computes and plots the weighted of all MSD
@@ -23,7 +23,9 @@ function varargout = plotMeanMSD(obj, ha, errorbar, indices)
 if nargin < 4
     indices = [];
 end
-
+if nargin < 5
+    transp = false;
+end
 msmsd = obj.getMeanMSD(indices);
 
 if nargin < 3
@@ -34,7 +36,7 @@ if nargin < 3
 end
 
 if errorbar
-    h = msdanalyzer.errorShade(ha, msmsd(:,1), msmsd(:,2), msmsd(:,3), [0 0 0], false);
+    h = msdanalyzer.errorShade(ha, msmsd(:,1), msmsd(:,2), msmsd(:,3), [0 0 0], transp);
     set(h.mainLine, 'LineWidth', 2);
     
 else
