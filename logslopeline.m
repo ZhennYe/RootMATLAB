@@ -1,4 +1,4 @@
-function [hout]=logslopeline(pow,p,x,y)
+function [hout]=logslopeline(pow,p,x,y,varargin)
 %makes a loglog slope line of power pow and starting at point p from end
 %pow = power of line
 %p = # from end where line starts
@@ -7,13 +7,18 @@ function [hout]=logslopeline(pow,p,x,y)
 %s = size of 
 %hin = handle in;
 %hout = handle to return
-xdat= [x(end-p):10^(log10(x(end-p))):x(end-p)*10];
+if(nargin>4)
+    decs=varargin{1};
+else
+    decs=1;
+end
+xdat= [x(end-p):10^(log10(x(end-p))):x(end-p)*(10^decs)];
 % x
 % xdat
-yline = linspace(1,10,length(xdat));
+yline = linspace(1,10^decs,length(xdat));
 % ydat = ((xdat).^pow).*y(end-p);
 ydat = y(end-p)*yline.^(pow);
-hout = loglog(xdat,ydat);
+hout = loglog(xdat,ydat,'linewidth',2);
 %%%%%%%%%%%old
 % yline = linspace(1,10,length(xdat));
 % ydat= y(end-p);
