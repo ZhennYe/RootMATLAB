@@ -4,7 +4,7 @@ function figText(handle,tSize,varargin)
 %tSize = textSize
 figure(handle);
 set(findall(gcf,'-property','FontSize'),'FontSize',tSize);
-
+set(gca, 'Color', 'none')
 if(nargin>=3)
     set(gca,'box','on','linewidth',varargin{1});
 else
